@@ -1,0 +1,41 @@
+<div class="main-container">
+  <header>
+    <mat-card class="header-container">
+      <i style="font-size: 2rem" class="fad fa-gamepad"></i>
+      <h1>Controla la camara de tu preferencia</h1>
+      <div class="text-container" id="text-container">
+        <label for="gotoIndex">volver al inicio</label>
+        <button
+          mat-icon-button
+          color="warn"
+          id="gotoIndex"
+          class="gotoIndex"
+          (click)="navigateToComponent('home')"
+          aria-label="Go to home"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </header>
+  <main>
+    <div class="videoContainer" id="videoContainer">
+      <mat-card id="video-card" class="video-card">
+        <video id="video-input" #videoInput autoplay></video>
+      </mat-card>
+      <mat-card class="select-container">
+        <select class="select-cam" #cameraSelect (change)="startCapture()">
+          <option
+            *ngFor="let device of videoDevices; let i = index"
+            [value]="device.deviceId"
+          >
+            {{ device.label || "Cámara " + (i + 1) }}
+          </option>
+        </select>
+        <mat-card class="controls-container">
+          <p>aqui deberian ir los controles</p>
+        </mat-card>
+      </mat-card>
+    </div>
+  </main>
+</div>

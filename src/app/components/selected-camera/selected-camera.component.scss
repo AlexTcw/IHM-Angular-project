@@ -1,0 +1,90 @@
+header {
+  .header-container {
+    margin-bottom: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Distribuir los elementos con espacio entre ellos */
+  }
+}
+
+main {
+  margin: 0 auto; /* Centrar horizontalmente el contenido */
+  .videoContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    .select-container {
+      margin-top: 1%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      .select-cam {
+        cursor: pointer;
+        padding: 2px;
+        border-radius: 5px;
+        border: none;
+        appearance: none;
+        width: 100%;
+        color: white;
+        background-color: rgb(55, 57, 111);
+      }
+      .controls-container {
+        width: 100%;
+        margin-top: 2%;
+      }
+    }
+
+    .video-card {
+      width: 100%;
+      margin: 0 auto; /* Centrar el mat-card en el contenedor */
+      display: flex;
+      flex-direction: column;
+      padding: 2%;
+      justify-content: center;
+      align-items: center;
+      #video-input {
+        height: 100%;
+        width: 100%; /* Utilizar el 100% del ancho disponible dentro del mat-card */
+        max-width: 100%; /* Asegurarse de que el video no exceda el ancho del mat-card */
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 568px) {
+  main .videoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main .video-card {
+    width: 50%; /* Dividir el espacio disponible en dos partes iguales */
+  }
+
+  main .select-container {
+    margin-left: 2%; /* Ajustar el margen izquierdo para separar los elementos */
+    width: 20rem; /* Utilizar el restante del espacio disponible */
+  }
+
+  main .controls-container {
+    height: 16rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header .header-container h1 {
+    font-size: 10px;
+  }
+}
