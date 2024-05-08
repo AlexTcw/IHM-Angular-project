@@ -19,6 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AllCamerasComponent } from './components/all-cameras/all-cameras.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { AllCamerasComponent } from './components/all-cameras/all-cameras.compon
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatSliderModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,7 +11,7 @@ export const navbarData = [
   },
   {
     routerLink: 'all-cameras',
-    icon: 'fal fa-chart-bar',
+    icon: 'fal fa-th-large',
     label: 'Dashboard',
   },
   {

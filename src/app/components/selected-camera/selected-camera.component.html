@@ -33,7 +33,25 @@
           </option>
         </select>
         <mat-card class="controls-container">
-          <p>aqui deberian ir los controles</p>
+          <mat-slider
+            [min]="10"
+            [max]="170"
+            [tickInterval]="10"
+            showTickMarks
+            discrete
+            [displayWith]="formatLabel"
+            thumbLabel
+            [(ngModel)]="sliderValue"
+          >
+            <input matSliderThumb />
+          </mat-slider>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="sendAngle(sliderValue)"
+          >
+            enviar
+          </button>
         </mat-card>
       </mat-card>
     </div>

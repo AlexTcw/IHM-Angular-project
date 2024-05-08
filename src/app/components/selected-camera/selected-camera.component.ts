@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { CamService } from 'src/app/services/cam.service';
 import { SideNavUtilComponent } from 'src/app/sidenav/side-nav-util/side-nav-util.component';
 
 @Component({
@@ -12,8 +13,12 @@ export class SelectedCameraComponent implements OnInit {
   @ViewChild('cameraSelect') cameraSelect!: ElementRef;
 
   videoDevices: MediaDeviceInfo[] = [];
+  sliderValue: number = 90; // Valor inicial del slider
 
-  constructor(private util: SideNavUtilComponent) {}
+  constructor(
+    private util: SideNavUtilComponent,
+    private camService: CamService
+  ) {}
 
   ngOnInit(): void {
     this.loadCameraList();
@@ -56,5 +61,15 @@ export class SelectedCameraComponent implements OnInit {
     if (this.videoDevices.length > 0) {
       this.startCapture();
     }
+  }
+
+  formatLabel(value: number): string {
+    return `${value}`;
+  }
+
+  sendAngle(angle: number) {
+    console.log(angle);
+
+    this.camService.sendAngle(angle).subscribe();
   }
 }

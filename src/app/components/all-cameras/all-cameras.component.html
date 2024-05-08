@@ -1,1 +1,52 @@
-<p>all-cameras works!</p>
+<div class="main-container">
+  <header>
+    <mat-card class="header-container">
+      <mat-card-content class="header-content">
+        <i style="font-size: 2rem" class="fad fa-gamepad"></i>
+        <h1>Vista general de las cámaras</h1>
+        <div class="text-container" id="text-container">
+          <label for="gotoIndex">volver al inicio</label>
+          <button
+            mat-icon-button
+            color="warn"
+            id="gotoIndex"
+            class="gotoIndex"
+            (click)="navigateToComponent('home')"
+            aria-label="Go to home"
+          >
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </header>
+  <main>
+    <div #videoContainer style="display: flex; flex-wrap: wrap">
+      <div
+        *ngFor="let cameraId of cameraIds"
+        class="video-card"
+        style="flex: 0 0 calc(33.333% - 20px); margin: 10px"
+      >
+        <mat-card
+          class="card-video-inputs"
+          style="width: 100%; min-height: 200px"
+        >
+          <mat-card-content style="min-height: 200px">
+            <video
+              class="video-inputs"
+              autoplay
+              [srcObject]="getStream(cameraId)"
+              style="
+                width: 100%;
+                height: 100%;
+                min-width: 200px;
+                min-height: 200px;
+                border-radius: 8px;
+              "
+            ></video>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </main>
+</div>
