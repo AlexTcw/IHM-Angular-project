@@ -1,0 +1,74 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  .right-panel{
+    width: 60%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .video-controls-right{
+      display: flex;
+      gap: 20px;
+    }
+    .video-stream{
+      width: 80%;
+      .video-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 18rem;
+        #image-stream{
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+    .right-controls{
+      display: flex;
+      flex-direction: column;
+      margin-top: 5%;
+      gap: 8px;
+    }
+
+    .bottom-controls{
+      display: flex;
+      gap: 50px;
+      margin-left: 18%;
+    }
+  }
+
+  .free-range{
+    width: 85%;
+    .slider-angle{
+      width: 86% !important;
+    }
+  }
+
+  .settings-container {
+    display: flex;
+    background-color: black;
+    width: 34%;
+    height: 100%;
+    border-radius: 10px;
+
+    .settings-card {
+      flex: 1; /* Esto permite que el mat-card ocupe todo el espacio disponible */
+      border-radius: 10px; /* Establecer el borde al mat-card */
+      overflow: hidden; /* Evitar que el iframe sobresalga */
+      iframe {
+        width: 100%; /* Hacer que el iframe ocupe todo el ancho del mat-card */
+        height: 100%; /* Hacer que el iframe ocupe todo el alto del mat-card */
+        border: none; /* Quitar el borde del iframe */
+      }
+    }
+  }
+
+}

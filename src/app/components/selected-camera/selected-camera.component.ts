@@ -70,6 +70,6 @@ export class SelectedCameraComponent implements OnInit {
   sendAngle(angle: number) {
     console.log(angle);
 
-    this.camService.sendAngle(angle).subscribe();
+    this.camService.sendAngle(angle,0).subscribe();
   }
 }

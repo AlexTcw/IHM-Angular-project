@@ -1,0 +1,99 @@
+<div class="main-container">
+  <div class="settings-container">
+    <mat-card class="settings-card">
+      <iframe id="video-settings" src="http://192.168.1.85/"></iframe>
+    </mat-card>
+  </div>
+
+<div class="right-panel">
+  <div class="video-controls-right">
+    <div class="video-stream">
+      <mat-card class="video-container">
+        <img [src]="cameraImageUrl" id="image-stream" alt="Imagen de la cámara">
+      </mat-card>
+    </div>
+    <div class="right-controls">
+      <button (click)="sendAngle(80,2)" mat-mini-fab color="accent" aria-label="Arriba 10">
+        <mat-icon>keyboard_arrow_up</mat-icon>
+      </button>
+      <br/>
+      <button (click)="sendAngle(10,2)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+        <mat-icon>vertical_align_top</mat-icon>
+      </button>
+      <br/>
+      <button (click)="sendAngle(170,2)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+        <mat-icon>vertical_align_bottom</mat-icon>
+      </button>
+      <br/>
+      <button (click)="sendAngle(120,2)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="bottom-controls">
+    <button (click)="sendAngle(80,1)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button (click)="sendAngle(10,1)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+      <mat-icon>fast_rewind</mat-icon>
+    </button>
+    <button (click)="sendAngle(170,1)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+      <mat-icon>fast_forward</mat-icon>
+    </button>
+    <button (click)="sendAngle(120, 1)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+  </div>
+  <div class="free-range">
+    <mat-card class="controls-container">
+      <div>
+        <mat-slider
+          class="slider-angle"
+          [min]="10"
+          [max]="170"
+          [tickInterval]="10"
+          showTickMarks
+          discrete
+          [displayWith]="formatLabel"
+          thumbLabel
+          [(ngModel)]="sliderValue"
+        >
+          <input matSliderThumb />
+        </mat-slider>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="sendAngle(sliderValue,2)"
+        >
+          enviar
+        </button>
+      </div>
+      <div>
+        <mat-slider
+          class="slider-angle"
+          [min]="10"
+          [max]="170"
+          [tickInterval]="10"
+          showTickMarks
+          discrete
+          [displayWith]="formatLabel"
+          thumbLabel
+          [(ngModel)]="sliderValue"
+        >
+          <input matSliderThumb />
+        </mat-slider>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="sendAngle(sliderValue,1)"
+        >
+          enviar
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
+</div>
+
