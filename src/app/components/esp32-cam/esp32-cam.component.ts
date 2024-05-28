@@ -21,7 +21,7 @@ export class Esp32CamComponent implements OnInit {
   }
 
   streamImage(){
-    this.cameraImageUrl = `http://192.168.1.85:81/stream?${new Date().getTime()}`
+    this.cameraImageUrl = `http://192.168.143.151:81/stream?${new Date().getTime()}`
   }
 
   formatLabel(value: number): string {
