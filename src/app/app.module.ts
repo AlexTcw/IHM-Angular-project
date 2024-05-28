@@ -22,6 +22,7 @@ import { AllCamerasComponent } from './components/all-cameras/all-cameras.compon
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Esp32CamComponent } from './components/esp32-cam/esp32-cam.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     AllCamerasComponent,
+    Esp32CamComponent,
   ],
   imports: [
     BrowserModule,

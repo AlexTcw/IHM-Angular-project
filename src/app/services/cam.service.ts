@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CamService {
-  baseCamURL: string = 'http://192.168.1.86/led?number=';
+  baseCamURL: string = 'http://192.168.143.19/servo';
 
   constructor(private httpClient: HttpClient) {}
 
-  sendAngle(angle: number): Observable<any> {
-    console.log(`${this.baseCamURL}${angle}`);
-    return this.httpClient.get<any>(`${this.baseCamURL}${angle}`);
+  sendAngle(angle: number, servo: number): Observable<any> {
+    const url = `${this.baseCamURL}?servo=${servo}&angle=${angle}`;
+    console.log(url);
+    return this.httpClient.get<any>(url);
   }
 }

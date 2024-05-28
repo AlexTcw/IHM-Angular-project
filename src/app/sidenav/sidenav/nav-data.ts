@@ -15,9 +15,9 @@ export const navbarData = [
     label: 'Dashboard',
   },
   {
-    routerLink: 'coupens',
-    icon: 'fal fa-tags',
-    label: 'Coupens',
+    routerLink: 'wired',
+    icon: 'fas fa-wifi',
+    label: 'Wired-devices',
   },
   {
     routerLink: 'pages',
