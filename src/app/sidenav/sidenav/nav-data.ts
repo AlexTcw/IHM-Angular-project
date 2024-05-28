@@ -20,16 +20,6 @@ export const navbarData = [
     label: 'Wired-devices',
   },
   {
-    routerLink: 'pages',
-    icon: 'fal fa-file',
-    label: 'Pages',
-  },
-  {
-    routerLink: 'media',
-    icon: 'fal fa-camera',
-    label: 'Media',
-  },
-  {
     routerLink: 'settings',
     icon: 'fal fa-cog',
     label: 'Settings',

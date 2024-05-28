@@ -1,0 +1,22 @@
+.container{
+  display: flex;
+  gap: 1%;
+  #robot-img{
+    border-radius: 10px;
+    width:40% ;
+  }
+  .welcome-card{
+    padding: 50px;
+    .tittle{
+      display: flex;
+      gap: 60px;
+      h1{
+        font-size: 35px;
+      }
+      #cam-icon{
+        font-size: 65px;
+        color: #21425a;
+      }
+    }
+  }
+}

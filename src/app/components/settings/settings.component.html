@@ -1,0 +1,41 @@
+<header>
+  <mat-card class="header-container">
+    <mat-card-content class="header-content">
+      <i style="font-size: 2rem" class="fad fa-gamepad"></i>
+      <h1>Configura tu esp32-cam</h1>
+      <p>Ingresa el ip o url de tus componentes arduino</p>
+      <div class="text-container" id="text-container">
+        <label for="gotoIndex">volver al inicio</label>
+        <button
+          mat-icon-button
+          color="warn"
+          id="gotoIndex"
+          class="gotoIndex"
+          (click)="navigateToComponent('home')"
+          aria-label="Go to home"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</header>
+<div class="container">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Direccion del motor</mat-label>
+    <input matInput type="text" [(ngModel)]="value">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button style="margin-bottom: 1rem" mat-raised-button color="primary" (click)="onSaveMotorAddress()">Guardar Motor</button>
+
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Direccion de la cámara</mat-label>
+    <input matInput type="text" [(ngModel)]="value1">
+    <button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button style="margin-top: 1rem" mat-raised-button color="primary" (click)="onSaveCameraAddress()">Guardar Cámara</button>
+</div>

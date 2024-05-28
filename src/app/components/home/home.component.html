@@ -1,2 +1,42 @@
-<p>home works!</p>
-<app-footer></app-footer>
+<div class="container">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+
+        <h1>Bienvenido al Sistema de Vigilancia</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Este sistema permite controlar las cámaras conectadas a su computadora.</p>
+
+      <h2>Funciones Principales</h2>
+      <p>Puede ver todas las cámaras conectadas a su computadora de manera nativa, incluyendo cámaras web,
+        cámaras IP y cámaras conectadas por aplicaciones de terceros, siempre y cuando sean reconocidas
+        por su sistema operativo.</p>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/dashboard">Ver todas las cámaras disponibles</button>
+      </mat-card-actions>
+
+      <p>Seleccione la cámara de su preferencia. Si tiene un SDK para su cámara, puede configurarlo en la sección
+        de acciones y alternar entre diferentes cámaras conectadas al sistema.</p>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/dashboard">Ver cámara seleccionada</button>
+      </mat-card-actions>
+
+      <p>Además, se ha añadido una sección para configurar una cámara ESP32-CAM.</p>
+
+      <h2>Instrucciones para configurar la ESP32-CAM</h2>
+      <ol>
+        <li>Descargue y cargue el código proporcionado para la ESP32-CAM.</li>
+        <li>Configure el SSID y la contraseña en el código.</li>
+        <li>Conecte todos los componentes como se muestra en las imágenes del repositorio.</li>
+        <li>Verifique el funcionamiento de la cámara. Nota: Es importante que el dispositivo comparta la red o, en su
+          defecto, utilice un VPN o servicio en la nube para recuperar la imagen.</li>
+      </ol>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/dashboard">Configurar ESP32-CAM</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  <img id="robot-img" src="assets/img/robot.png" alt="Robot Image">
+</div>

@@ -15,4 +15,10 @@ export class CamService {
     console.log(url);
     return this.httpClient.get<any>(url);
   }
+
+  sendAngleWithIP(ip:string,angle: number, servo: number): Observable<any> {
+    const url = `http://${ip}?servo=${servo}&angle=${angle}`;
+    console.log(url);
+    return this.httpClient.get<any>(url);
+  }
 }

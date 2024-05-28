@@ -23,6 +23,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Esp32CamComponent } from './components/esp32-cam/esp32-cam.component';
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { Esp32CamComponent } from './components/esp32-cam/esp32-cam.component';
     MatSliderModule,
     FormsModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
