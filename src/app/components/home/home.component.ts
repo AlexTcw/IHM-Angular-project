@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SideNavUtilComponent} from "../../sidenav/side-nav-util/side-nav-util.component";
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private util: SideNavUtilComponent,) { }
 
   ngOnInit(): void {
     const motorAddress = localStorage.getItem('motorAddress');
@@ -15,6 +16,10 @@ export class HomeComponent implements OnInit {
 
     console.log('Motor Address:', motorAddress);
     console.log('Camera Address:', cameraAddress);
+  }
+
+  navigateToComponent(componentName: string) {
+    this.util.goToComponent(componentName);
   }
 
 }

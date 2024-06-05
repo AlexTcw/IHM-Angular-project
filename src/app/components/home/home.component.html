@@ -14,13 +14,13 @@
         cámaras IP y cámaras conectadas por aplicaciones de terceros, siempre y cuando sean reconocidas
         por su sistema operativo.</p>
       <mat-card-actions>
-        <button mat-raised-button color="primary" routerLink="/dashboard">Ver todas las cámaras disponibles</button>
+        <button mat-raised-button color="primary" (click)="navigateToComponent('all-cameras')">Ver todas las cámaras disponibles</button>
       </mat-card-actions>
 
       <p>Seleccione la cámara de su preferencia. Si tiene un SDK para su cámara, puede configurarlo en la sección
         de acciones y alternar entre diferentes cámaras conectadas al sistema.</p>
       <mat-card-actions>
-        <button mat-raised-button color="primary" routerLink="/dashboard">Ver cámara seleccionada</button>
+        <button mat-raised-button color="primary" (click)="navigateToComponent('selectedCamera')">Ver cámara seleccionada</button>
       </mat-card-actions>
 
       <p>Además, se ha añadido una sección para configurar una cámara ESP32-CAM.</p>
@@ -34,7 +34,7 @@
           defecto, utilice un VPN o servicio en la nube para recuperar la imagen.</li>
       </ol>
       <mat-card-actions>
-        <button mat-raised-button color="primary" routerLink="/dashboard">Configurar ESP32-CAM</button>
+        <button mat-raised-button color="primary" (click)="navigateToComponent('settings')">Configurar ESP32-CAM</button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>

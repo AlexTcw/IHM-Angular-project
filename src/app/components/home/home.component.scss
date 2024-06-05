@@ -1,9 +1,9 @@
 .container{
   display: flex;
-  gap: 1%;
+  justify-content: space-between;
   #robot-img{
     border-radius: 10px;
-    width:40% ;
+    width:100% ;
   }
   .welcome-card{
     padding: 50px;
