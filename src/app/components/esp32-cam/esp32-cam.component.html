@@ -13,46 +13,41 @@
         </mat-card>
       </div>
       <div class="right-controls">
-        <button (click)="sendAngle(80, 2); changeLR(80)" aria-label="Arriba 80°" color="accent" mat-mini-fab>
-          80°
+        <button (click)="sendAngle(170, 2); changeLR(80)" aria-label="Arriba 80°" color="accent" mat-mini-fab>
+          <i class="fa fa-arrow-up" aria-hidden="true"></i>
         </button>
 
 
         <br/>
-        <button (click)="sendAngle(10,2); changeLR(10)" aria-label="Example icon button with a plus one icon" color="accent"
+        <button (click)="sendAngle(90,2); changeLR(10)" aria-label="Example icon button with a plus one icon" color="accent"
                 mat-mini-fab>
-          10°
+          <i class="fa fa-circle" aria-hidden="true"></i>
+
+
         </button>
         <br/>
-        <button (click)="sendAngle(170,2); changeLR(170)" aria-label="Example icon button with a plus one icon" color="accent"
+        <button (click)="sendAngle(10,2); changeLR(170)" aria-label="Example icon button with a plus one icon" color="accent"
                 mat-mini-fab>
-          170°
-        </button>
-        <br/>
-        <button (click)="sendAngle(120,2); changeLR(120)" aria-label="Example icon button with a plus one icon" color="accent"
-                mat-mini-fab>
-          120°
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+
         </button>
       </div>
     </div>
     <div class="bottom-controls">
-      <button (click)="sendAngle(80,1); changeUD(80)" aria-label="Example icon button with a plus one icon" color="accent"
+      <button (click)="sendAngle(10,1); changeUD(80)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
-        80°
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
       </button>
-      <button (click)="sendAngle(10,1); changeUD(10)" aria-label="Example icon button with a plus one icon" color="accent"
+      <button (click)="sendAngle(90,1); changeUD(10)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
-        10°
+        <i class="fa fa-circle" aria-hidden="true"></i>
+
+
       </button>
       <button (click)="sendAngle(170,1); changeUD(170)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
-        170°
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </button>
-      <button (click)="sendAngle(120, 1); changeUD(120)" aria-label="Example icon button with a plus one icon" color="accent"
-              mat-mini-fab>
-        120°
-      </button>
-
     </div>
     <div class="free-range">
       <mat-card class="controls-container">
