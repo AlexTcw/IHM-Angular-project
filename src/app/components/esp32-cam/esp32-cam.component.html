@@ -13,20 +13,20 @@
         </mat-card>
       </div>
       <div class="right-controls">
-        <button (click)="sendAngle(170, 2); changeLR(80)" aria-label="Arriba 80°" color="accent" mat-mini-fab>
+        <button (click)="sendAngle(170, 2); changeUD(80)" aria-label="Arriba 80°" color="accent" mat-mini-fab>
           <i class="fa fa-arrow-up" aria-hidden="true"></i>
         </button>
 
 
         <br/>
-        <button (click)="sendAngle(90,2); changeLR(10)" aria-label="Example icon button with a plus one icon" color="accent"
+        <button (click)="sendAngle(90,2); changeUD(0)" aria-label="Example icon button with a plus one icon" color="accent"
                 mat-mini-fab>
           <i class="fa fa-circle" aria-hidden="true"></i>
 
 
         </button>
         <br/>
-        <button (click)="sendAngle(10,2); changeLR(170)" aria-label="Example icon button with a plus one icon" color="accent"
+        <button (click)="sendAngle(10,2); changeUD(-80)" aria-label="Example icon button with a plus one icon" color="accent"
                 mat-mini-fab>
           <i class="fa fa-arrow-down" aria-hidden="true"></i>
 
@@ -34,17 +34,17 @@
       </div>
     </div>
     <div class="bottom-controls">
-      <button (click)="sendAngle(10,1); changeUD(80)" aria-label="Example icon button with a plus one icon" color="accent"
+      <button (click)="sendAngle(10,1); changeLR(80)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
       </button>
-      <button (click)="sendAngle(90,1); changeUD(10)" aria-label="Example icon button with a plus one icon" color="accent"
+      <button (click)="sendAngle(90,1); changeLR(0)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
         <i class="fa fa-circle" aria-hidden="true"></i>
 
 
       </button>
-      <button (click)="sendAngle(170,1); changeUD(170)" aria-label="Example icon button with a plus one icon" color="accent"
+      <button (click)="sendAngle(170,1); changeLR(-80)" aria-label="Example icon button with a plus one icon" color="accent"
               mat-mini-fab>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </button>
@@ -52,6 +52,8 @@
     <div class="free-range">
       <mat-card class="controls-container">
         <div>
+          <mat-label>Mover libremente arriba y abajo</mat-label>
+          <br>
           <mat-slider
             [(ngModel)]="sliderValue"
             [displayWith]="formatLabel"
@@ -66,7 +68,7 @@
             <input matSliderThumb/>
           </mat-slider>
           <button
-            (click)="sendAngle(sliderValue,2); changeUD(sliderValue)"
+            (click)="sendAngle(sliderValue,2); changeUD(sliderValue-90)"
             color="warn"
             mat-raised-button
           >
@@ -74,6 +76,8 @@
           </button>
         </div>
         <div>
+          <mat-label>Mover libremente izquerda y derecha</mat-label>
+          <br>
           <mat-slider
             [(ngModel)]="sliderValue2"
             [displayWith]="formatLabel"
@@ -88,7 +92,7 @@
             <input matSliderThumb/>
           </mat-slider>
           <button
-            (click)="sendAngle(sliderValue2,1); changeUD(sliderValue2)"
+            (click)="sendAngle(sliderValue2,1); changeLR(sliderValue2-90)"
             color="warn"
             mat-raised-button
           >
@@ -96,8 +100,8 @@
           </button>
         </div>
       </mat-card>
-      <div class="cube-container">
-        <canvas class="canvas" #canvas></canvas>
+      <div class="cube-container" >
+        <div #rendererContainer></div>
       </div>
     </div>
 

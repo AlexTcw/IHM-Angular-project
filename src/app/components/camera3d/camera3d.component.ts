@@ -7,62 +7,65 @@ import * as THREE from 'three';
   styleUrls: ['./camera3d.component.scss']
 })
 export class Camera3dComponent implements OnInit {
-  @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
-
-  angleupdown: number = 90;
-  angleleftright: number = 90;
-
-  private renderer!: THREE.WebGLRenderer;
-  private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera;
-  private cube!: THREE.Mesh;
+  angleupdown: number = 0;
+  angleleftright: number = 0;
+  // @ts-ignore
+  @ViewChild('rendererContainer', { static: true }) rendererContainer: ElementRef;
+  // @ts-ignore
+  scene: THREE.Scene;
+  // @ts-ignore
+  camera: THREE.PerspectiveCamera;
+  // @ts-ignore
+  renderer: THREE.WebGLRenderer;
+  // @ts-ignore
+  imageTexture: THREE.Texture;
+  // @ts-ignore
+  mesh: THREE.Mesh;
 
   constructor(private ngZone: NgZone) {}
 
   ngOnInit(): void {
     this.initThreeJS();
+    this.loadImage();
     this.animate();
   }
 
-  private initThreeJS() {
-    const canvas = this.canvasRef.nativeElement;
-
-    // Renderer
-    this.renderer = new THREE.WebGLRenderer({ canvas });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-    // Scene
+  initThreeJS(): void {
     this.scene = new THREE.Scene();
-
-    // Camera
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.camera.position.z = 5;
 
-    // Cube
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00CC00, wireframe: false }); // Cambiado a wireframe
-    this.cube = new THREE.Mesh(geometry, material);
-    this.cube.scale.set(5, 5, 5); // Aumenta el tamaño en el eje x, y y z
-    this.scene.add(this.cube);
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
   }
 
-  private animate() {
-    this.ngZone.runOutsideAngular(() => {
-      const render = () => {
-        requestAnimationFrame(render);
-        this.renderer.render(this.scene, this.camera);
-      };
-      render();
+  loadImage(): void {
+    const loader = new THREE.TextureLoader();
+    loader.load('/assets/img/camera.png', (texture) => {
+      this.imageTexture = texture;
+      const geometry = new THREE.PlaneGeometry(3, 3);
+      const material = new THREE.MeshBasicMaterial({ map: this.imageTexture });
+      this.mesh = new THREE.Mesh(geometry, material);
+      this.scene.add(this.mesh);
+      this.updateRotation();
     });
   }
 
-  public rotateCube() {
-    // Convertir los ángulos de grados a radianes
-    const angleUpDownRad = THREE.MathUtils.degToRad(this.angleupdown);
-    const angleLeftRightRad = THREE.MathUtils.degToRad(this.angleleftright);
+  animate(): void {
+    this.ngZone.runOutsideAngular(() => {
+      const animateLoop = () => {
+        requestAnimationFrame(animateLoop);
+        this.renderer.render(this.scene, this.camera);
+      };
+      animateLoop();
+    });
+  }
 
-    // Aplicar las rotaciones al cubo
-    this.cube.rotation.x = angleUpDownRad;
-    this.cube.rotation.y = angleLeftRightRad;
+  updateRotation(): void {
+    if (this.mesh) {
+      this.mesh.rotation.x = THREE.MathUtils.degToRad(this.angleupdown);
+      this.mesh.rotation.y = THREE.MathUtils.degToRad(this.angleleftright);
+    }
   }
 }

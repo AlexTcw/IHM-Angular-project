@@ -1,8 +1,6 @@
-<canvas class="canvas" #canvas></canvas>
-<div style="position: absolute; top: 10px; left: 10px;">
-  <label for="angleUpDown">Angle Up/Down:</label>
-  <input type="number" id="angleUpDown" [(ngModel)]="angleupdown" (input)="rotateCube()">
+<div #rendererContainer></div>
+<label for="angleupdown">Ángulo Arriba/Abajo:</label>
+<input type="number" id="angleupdown" [(ngModel)]="angleupdown" (change)="updateRotation()">
 
-  <label for="angleLeftRight">Angle Left/Right:</label>
-  <input type="number" id="angleLeftRight" [(ngModel)]="angleleftright" (input)="rotateCube()">
-</div>
+<label for="angleleftright">Ángulo Izquierda/Derecha:</label>
+<input type="number" id="angleleftright" [(ngModel)]="angleleftright" (change)="updateRotation()">
