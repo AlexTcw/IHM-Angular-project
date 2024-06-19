@@ -3,6 +3,7 @@ import { CamService } from "../../services/cam.service";
 import { SideNavUtilComponent } from "../../sidenav/side-nav-util/side-nav-util.component";
 import Swal from "sweetalert2";
 import * as THREE from "three";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-esp32-cam',
@@ -32,11 +33,13 @@ export class Esp32CamComponent implements OnInit {
   motorAddress: string = "";
   cameraAddress: string = "";
   cameraURL: string = "";
+  cameraPanelURL:SafeResourceUrl = "";
 
   constructor(
     private camService: CamService,
     private util: SideNavUtilComponent,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private sanitizer:DomSanitizer,
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +53,7 @@ export class Esp32CamComponent implements OnInit {
     console.log(this.cameraURL)
     this.cameraControlsUrl = `http://${this.cameraAddress}/`
     console.log(this.cameraControlsUrl)
+    this.cameraPanelURL = this.sanitizer.bypassSecurityTrustResourceUrl(`http://${this.cameraAddress}/`);
 
     if (!this.motorAddress || !this.cameraAddress) {
       Swal.fire({
